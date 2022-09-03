@@ -15,14 +15,14 @@ int
 main( int argc
 , char * argv[]
 ){  if( argc < 2 )
-		return 1;
-	daemon( 0, 0 );
-	char **argv_e = alloca( sizeof( char * ) * argc );
-	for( int i = 1; i < argc ; i++ )
-	{	argv_e[ i - 1 ] = alloca( strlen( argv[i] ) + 1 );
-	    strcpy( argv_e[ i - 1 ], argv[i] );
-	}
-	argv_e[ argc - 1 ] = NULL;
-	return execv( argv_e[0], argv_e );
+        return 1;
+    daemon( 0, 0 );
+    char **argv_e = alloca( sizeof( char * ) * argc );
+    for( int i = 1; i < argc ; i++ )
+    {   argv_e[ i - 1 ] = alloca( strlen( argv[i] ) + 1 );
+        strcpy( argv_e[ i - 1 ], argv[i] );
+    }
+    argv_e[ argc - 1 ] = NULL;
+    return execv( argv_e[0], argv_e );
 }
 /*****************************************************************************/
