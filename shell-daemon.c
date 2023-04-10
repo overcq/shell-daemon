@@ -16,7 +16,8 @@ main( int argc
 , char * argv[]
 ){  if( argc < 2 )
         return 1;
-    daemon( 0, 0 );
+    if( !~daemon( 0, 0 ))
+        return ~0;
     char **argv_e = alloca( sizeof( char * ) * argc );
     for( int i = 1; i < argc ; i++ )
     {   argv_e[ i - 1 ] = alloca( strlen( argv[i] ) + 1 );
